@@ -1,0 +1,336 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: FiraSans, sans-serif;
+}
+
+body {
+  width: 100%;
+}
+
+.container {
+  width: 1170px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+ul li {
+  list-style: none;
+}
+
+header .top-header {
+  background-color: #00ADEF;
+}
+
+header .top-header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .top-header .container .header-left {
+  display: flex;
+  align-items: center;
+}
+
+header .top-header .container .header-left i {
+  padding-right: 5px;
+}
+
+header .top-header .container .header-right ul {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 18px;
+}
+
+header .top-header .container .header-right ul a {
+  text-decoration: none;
+  color: #ffffff;
+  padding-left: 10px;
+}
+
+header .navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .navbar .container a img {
+  width: 100%;
+}
+
+header .navbar .container .navbar-menu ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+header .navbar .container .navbar-menu ul .is-active a {
+  border-bottom: 5px solid #F7941D;
+}
+
+header .navbar .container .navbar-menu ul li {
+  margin-left: 10px;
+}
+
+header .navbar .container .navbar-menu ul li a {
+  padding: 16px 18px;
+  text-decoration: none;
+  color: #00ADEF;
+  width: 100%;
+}
+
+header .navbar .container .navbar-menu ul li a:hover {
+  border-bottom: 5px solid #F7941D;
+}
+
+main .homeSearch {
+  background: url(/images/bg-box-search.jpg?f5476e767777feda61e4bfdc1c94b9fd) no-repeat top center;
+  height: 425px;
+  padding: 75px 0px 0px 0px;
+}
+
+main .homeSearch .wrap-box-search {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+  padding: 50px 30px 20px 30px;
+  position: relative;
+}
+
+main .homeSearch .wrap-box-search .tab-services {
+  position: absolute;
+  top: -15px;
+  left: 30px;
+  right: 30px;
+  background: #00adef;
+  border-radius: 3px;
+  padding: 8px 30px;
+}
+
+main .homeSearch .wrap-box-search .tab-services ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+main .homeSearch .wrap-box-search .tab-services ul:before {
+  position: absolute;
+  bottom: -8px;
+  left: 180px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #00adef;
+}
+
+main .homeSearch .wrap-box-search .tab-services ul .tab-flight {
+  color: #fff;
+}
+
+main .homeSearch .wrap-box-search .tab-services ul li {
+  color: #575757;
+}
+
+main .homeSearch .wrap-box-search .tab-services ul li a {
+  text-decoration: none;
+  color: #575757;
+}
+
+main .homeSearch .wrap-box-search .tab-services ul li a:hover {
+  color: #fff;
+}
+
+main .homeSearch .wrap-box-search .ticketype {
+  display: flex;
+  flex-direction: row;
+}
+
+main .homeSearch .wrap-box-search .ticketype .custom {
+  padding: 10px 25px;
+  color: #f7941d;
+  border-radius: 5px 0px 0px 5px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+main .homeSearch .wrap-box-search .ticketype .custom2 {
+  padding: 10px 25px;
+  color: #f7941d;
+  border-radius: 0px 5px 5px 0px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+main .homeSearch .wrap-box-search .box-search {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  width: 100%;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first button {
+  width: 43px;
+  height: 105px;
+  background: url(/images/ic-convert.png?9fbf0f30c0ecaae2f91e144fb1a5f353) no-repeat left;
+  border: none;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .start {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .start label i {
+  color: #00ADEF;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .start label span {
+  color: #CDCDCD;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .start input {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 7px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .final {
+  display: flex;
+  flex-direction: column;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .final label i {
+  color: #00ADEF;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .final label span {
+  color: #CDCDCD;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-search-first .box-location .final input {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 7px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .start-days {
+  width: 80%;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .start-days label i {
+  color: #00ADEF;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .start-days label span {
+  color: #CDCDCD;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .start-days input {
+  border-radius: 6px;
+  width: 80%;
+  height: 30px;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .final-days {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .final-days label i {
+  color: #00ADEF;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .final-days label span {
+  color: #CDCDCD;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-days .final-days input {
+  border-radius: 6px;
+  width: 80%;
+  height: 30px;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-people {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-people .Adults,
+main .homeSearch .wrap-box-search .box-search .box-people .child,
+main .homeSearch .wrap-box-search .box-search .box-people .born {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+  height: 90px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-people .Adults label,
+main .homeSearch .wrap-box-search .box-search .box-people .child label,
+main .homeSearch .wrap-box-search .box-search .box-people .born label {
+  height: 57px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-people .Adults label i,
+main .homeSearch .wrap-box-search .box-search .box-people .child label i,
+main .homeSearch .wrap-box-search .box-search .box-people .born label i {
+  color: #00ADEF;
+  font-size: 20px;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-people .Adults label span,
+main .homeSearch .wrap-box-search .box-search .box-people .child label span,
+main .homeSearch .wrap-box-search .box-search .box-people .born label span {
+  color: #CDCDCD;
+}
+
+main .homeSearch .wrap-box-search .box-search .box-people .Adults input,
+main .homeSearch .wrap-box-search .box-search .box-people .child input,
+main .homeSearch .wrap-box-search .box-search .box-people .born input {
+  border-radius: 6px;
+  width: 100%;
+  height: 25px;
+  font-size: 20px;
+}
+
+main .aaa {
+  background: red;
+  height: 100px;
+  width: 1000px;
+}
+
