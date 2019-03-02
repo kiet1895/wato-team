@@ -10,9 +10,7 @@
 		<title>Home Work</title>
 		
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Scripts -->
-		<script src="{{ asset('js/app.js') }}" defer></script>
+		
 		
 
     <!-- Fonts -->
@@ -29,7 +27,7 @@
 				<div class="logo">
 					<label for="#">
 						<i class="fas fa-globe-europe"></i>
-						<a href="{{ url('/category') }}">Home Work</a>
+						<a href="{{ url('/categories') }}">Home Work</a>
 					</label>
 				</div>
 				<ul class="user-login">
@@ -68,6 +66,16 @@
 		<main>
 			@yield('content')
 		</main>
-    </div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$.ajaxSetup({
+					headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+			});
+			</script>
+    <!-- Scripts -->
+		<script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

@@ -18,13 +18,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('/category', 'CategoryController',['middleware'=> ['auth']]);
+Route::resource('categories', 'CategoryController',['middleware'=> ['auth']]);
 
 
-Route::resource('/listwork', 'ListWorkController',['middleware'=> ['auth']]);
+Route::resource('listwork', 'ListWorkController',['middleware'=> ['auth']]);
 
-Route::group(mi,['prefix' => 'admin'], function () {
+// Route::group(['middleware'=> ['auth']],['prefix' => 'admin'], function () {
     
-});
+// });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

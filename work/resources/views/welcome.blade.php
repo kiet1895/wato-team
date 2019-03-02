@@ -18,14 +18,14 @@
 					<div class="logo">
 						<label for="#">
 							<i class="fas fa-globe-europe"></i>
-							<a href="#">Home Work</a>
+							<a href="{{ url('/categories') }}">Home Work</a>
 						</label>
 					</div>
 					<div class="action">
 						@if (Route::has('login'))
 							<div class="action-btn">
 								@auth
-									<a href="{{ url('/category') }}">Home</a>
+									<a href="{{ url('/categories') }}">Home</a>
 								@else
 									<a href="{{ route('login') }}">Login</a>
 

@@ -18,25 +18,34 @@
 						<div><a href="#"><i class="fas fa-check"></i>Complete</a></div>
 						<div><span></span></div>
 					</li>
-					@foreach ($Categorys as $Category)
+					@foreach ($categories as $categories)
 					<li>
-						<div class="data-edit-{{ $Category->id }}">
-							<a href="{{ route('listwork.show',$Category->id) }}"><i class="fas fa-list-ul"></i>{{ $Category->name }}</a>
+						<div class="data-edit-{{ $categories->id }}">
+							<a href="{{ route('listwork.show',$categories->id) }}"><i class="fas fa-list-ul"></i>{{ $categories->name }}</a>
+						</div>
+						<div class="input-edit-{{ $categories->id }} input-edit">
+							{{-- <form method="POST" action="{{ route("categories.update",$categories->id) }}" id="checkForm-{{ $categories->id }}">
+								{{ method_field('PUT') }} 
+								@csrf 
+								<input type="text" name="name" value="{{ $categories->name }}">
+							</form> --}}
+
+							<input id="input-data-{{ $categories->id }}" type="text" name="name" value="{{ $categories->name }}">
+
 						</div>
 						<div><span>6</span></div>
 						<div class="work-action">
 							<div class="action">
-								<button class="btn-edit-{{ $Category->id }}">
+								<button class="btn-edit" data-id="{{ $categories->id }}">
 										<i class="fas fa-pen"></i>
 								</button>
-								<script>
-								$('.btn-edit-{{ $Category->id }}').click(function(event){
-										event.preventDefault()
-									$('.data-edit-{{ $Category->id }}').replaceWith('<form method="POST" action="{{ route("category.update",[$Category->id]) }}" id="check">{{ method_field('PUT') }} @csrf <input type="text" name="name" id="" value="{{ $Category->name }}"></form>');
-									$('.btn-edit-{{ $Category->id }}').replaceWith('<button form="check" class="btn-edit-{{ $Category->id }}"><i class="fas fa-check"></i></button>');
-								});
-								</script>
-								<form action="{{ route('category.destroy',$Category) }}" method="POST">
+								{{-- <button type="submit" form="checkForm-{{ $categories->id }}" value="Submit" class="btn-edit-check btn-edit-check-{{ $categories->id }}"><i class="fas fa-check"></i></button> --}}
+
+
+								<button class="btn-edit-check btn-edit-check-{{ $categories->id }}" data-id="{{ $categories->id }}" type="submit"><i class="fas fa-check"></i></button>
+
+
+								<form action="{{ route('categories.destroy',$categories) }}" method="POST">
 									@csrf
 									<input type="hidden" name="_method" value="delete">
 									<button><i class="fas fa-trash-alt"></i></button>
@@ -46,16 +55,40 @@
 					</li>
 					@endforeach
 					{{-- ------- --}}
+					{{-- <li>
+						<div class="data-edit-0">
+							<a href="{{ route('listwork.show',$categories->id) }}"><i class="fas fa-list-ul"></i>name</a>
+						</div>
+						<div class="input-edit-0 input-edit">
+							<form method="POST" action="{{ route("categories.update",[$categories->id]) }}" id="check">
+								{{ method_field('PUT') }} 
+								@csrf 
+								<input type="text" name="name" id="" value="name">
+							</form>
+						</div>
+						<div><span>6</span></div>
+						<div class="work-action">
+							<div class="action">
+								<button class="btn-edit" data-id="0">
+										<i class="fas fa-pen"></i>
+								</button>
+								<button form="check" class="btn-edit-check btn-edit-check-0"><i class="fas fa-check"></i></button>
+								<form action="{{ route('categories.destroy',$categories) }}" method="POST">
+									@csrf
+									<input type="hidden" name="_method" value="delete">
+									<button><i class="fas fa-trash-alt"></i></button>
+								</form>
+							</div>
+						</div>
+					</li> --}}
+					{{-- aaaaaa --}}
 					<li class="li-add">
 						<div class="add">
 							<label for="list"><i class="fas fa-list-ul"></i></label>
-						<form action="{{ route("category.store") }}" method="post" id="check-group">
-							{{ csrf_field() }}
-							<input placeholder="Add group" type="text" name="name" id="list">
-						</form>
+							<input class="dataAdd" placeholder="Add group" type="text" name="name" id="list">
 						</div>
 						<div class="work-action">
-							<button type="submit" form="check-group"><i class="fas fa-check"></i>
+							<button class="buttonAddWork" type="submit" form="check-group"><i class="fas fa-check"></i>
 							</button>
 						</div>
 					</li>

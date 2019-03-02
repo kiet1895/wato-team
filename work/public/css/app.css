@@ -170,6 +170,23 @@
   list-style: none;
 }
 
+.home .container-home .home-menu-list .nav-left ul .btn-edit-check {
+  display: none;
+}
+
+.home .container-home .home-menu-list .nav-left ul .input-edit {
+  display: none;
+}
+
+.home .container-home .home-menu-list .nav-left ul .input-edit input {
+  font-size: 20px;
+  border: none;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px 0px;
+}
+
 .home .container-home .home-menu-list .nav-left ul li {
   padding: 10px 20px;
   border-top: 1px dotted #3C74B8;

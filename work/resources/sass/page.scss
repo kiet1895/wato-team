@@ -149,6 +149,20 @@
 				justify-content: space-between;
 				ul {
 					list-style: none;
+					.btn-edit-check {
+						display: none;
+					}
+					.input-edit {
+						display: none;
+						input {
+							font-size: 20px;
+							border: none;
+							background: rgba(0 , 0, 0, 0.15);
+							border-radius: 3px;
+							color: rgba(255, 255, 255, 0.8);
+							padding: 10px 0px;
+						}
+					}
 					li {
 						padding: 10px 20px;
 						border-top: 1px dotted #3C74B8;

@@ -10,8 +10,11 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $Categorys = Category::all();
-        return view('home', ['Categorys' => $Categorys]);
+        $categories = Category::all();
+        return view('home', ['categories' => $categories]);
+        // return response()->json([
+        //     'Category'=>$Categorys
+        // ]);
     }
 
     public function create()
@@ -30,28 +33,34 @@ class CategoryController extends Controller
         //     'name' => request()->name
         // ])
 
-        Category::create(request()->only('name'));
-        return redirect(route('category.index'));
+        // Category::create(request()->only('name'));
+        Category::create([
+            'name' => $request->name
+        ]);
+        return response()->json([
+            'success' => true,
+        ]);
     }
-    public function show(Category $Category)
+    public function update(Request $request,$id)
     {
-        //
-    }
-    public function edit(Category $Category)
-    {
-        dd($Category);
-    }
+        // dd($category);
+        // $category->update(request()->only('name'));
+        // return redirect(route('categories.index'));
 
-    public function update(Request $request, category $Category)
-    {
-        // dd($request->name);
-        $Category->update(request()->only('name'));
-        return redirect(route('category.index'));
+        // $request->get('name');
+        // dd($request);
+        $category = Category::find($id);
+        $category->update([
+            'name' => $request->name
+        ]);
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
     public function destroy(category $Category)
     {
         $Category->delete();
-        return redirect('/category');
+        return redirect(route('categories.index'));
     }
 }
