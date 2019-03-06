@@ -19,8 +19,8 @@
 						<div><span></span></div>
 					</li>
 					@foreach ($categories as $categories)
-					<li>
-						<div class="data-edit-{{ $categories->id }}">
+				<li class="li-{{ $categories->id }}">
+						<div class="size-li  data-edit-{{ $categories->id }}">
 							<a href="{{ route('listwork.show',$categories->id) }}"><i class="fas fa-list-ul"></i>{{ $categories->name }}</a>
 						</div>
 						<div class="input-edit-{{ $categories->id }} input-edit">
@@ -29,9 +29,7 @@
 								@csrf 
 								<input type="text" name="name" value="{{ $categories->name }}">
 							</form> --}}
-
-							<input id="input-data-{{ $categories->id }}" type="text" name="name" value="{{ $categories->name }}">
-
+							<input class="input-data-{{ $categories->id }}" type="text" name="name" value="{{ $categories->name }}">
 						</div>
 						<div><span>6</span></div>
 						<div class="work-action">
@@ -40,48 +38,17 @@
 										<i class="fas fa-pen"></i>
 								</button>
 								{{-- <button type="submit" form="checkForm-{{ $categories->id }}" value="Submit" class="btn-edit-check btn-edit-check-{{ $categories->id }}"><i class="fas fa-check"></i></button> --}}
-
-
 								<button class="btn-edit-check btn-edit-check-{{ $categories->id }}" data-id="{{ $categories->id }}" type="submit"><i class="fas fa-check"></i></button>
-
-
-								<form action="{{ route('categories.destroy',$categories) }}" method="POST">
+								{{-- <form action="{{ route('categories.destroy',$categories) }}" method="POST">
 									@csrf
 									<input type="hidden" name="_method" value="delete">
 									<button><i class="fas fa-trash-alt"></i></button>
-								</form>
+								</form> --}}
+							<button class="delete" data-id="{{$categories->id}}" data-token = "{{ csrf_token() }}"><i class="fas fa-trash-alt"></i></button>
 							</div>
 						</div>
 					</li>
 					@endforeach
-					{{-- ------- --}}
-					{{-- <li>
-						<div class="data-edit-0">
-							<a href="{{ route('listwork.show',$categories->id) }}"><i class="fas fa-list-ul"></i>name</a>
-						</div>
-						<div class="input-edit-0 input-edit">
-							<form method="POST" action="{{ route("categories.update",[$categories->id]) }}" id="check">
-								{{ method_field('PUT') }} 
-								@csrf 
-								<input type="text" name="name" id="" value="name">
-							</form>
-						</div>
-						<div><span>6</span></div>
-						<div class="work-action">
-							<div class="action">
-								<button class="btn-edit" data-id="0">
-										<i class="fas fa-pen"></i>
-								</button>
-								<button form="check" class="btn-edit-check btn-edit-check-0"><i class="fas fa-check"></i></button>
-								<form action="{{ route('categories.destroy',$categories) }}" method="POST">
-									@csrf
-									<input type="hidden" name="_method" value="delete">
-									<button><i class="fas fa-trash-alt"></i></button>
-								</form>
-							</div>
-						</div>
-					</li> --}}
-					{{-- aaaaaa --}}
 					<li class="li-add">
 						<div class="add">
 							<label for="list"><i class="fas fa-list-ul"></i></label>
@@ -92,7 +59,38 @@
 							</button>
 						</div>
 					</li>
-					{{-- --------- --}}
+					<li class="">
+							<div class="add">
+								<label for="list"><i class="fas fa-list-ul"></i></label>
+								<input class="dataAdd" placeholder="Add group" type="text" name="name" id="list">
+							</div>
+							<div class="work-action">
+								<button class="buttonAddWork" type="submit" form="check-group"><i class="fas fa-check"></i>
+								</button>
+							</div>
+						</li>
+					{{-- ------- --}}
+					<div class="add-new-list">
+							<li class="li-id">
+								<div class="size-li data-edit-id">
+									<a class="name-add" href="#"><i class="fas fa-list-ul"></i></a>
+								</div>
+								<div class="input-edit-id input-edit">
+									<input class="input-data-id" type="text" value="" placeholder="">
+								</div>
+								<div><span>6</span></div>
+								<div class="work-action">
+									<div class="action">
+										<button class="btn-edit btn-edit-id" data-id="?">
+												<i class="fas fa-pen"></i>
+										</button>
+										<button class="btn-edit-check btn-edit-check-id" data-id="?" type="submit"><i class="fas fa-check"></i></button>
+										<button class="delete" data-id="?" data-token = "{{ csrf_token() }}"><i class="fas fa-trash-alt"></i></button>
+									</div>
+								</div>
+							</li>
+					</div>
+					{{-- aaaaaa --}}
 				</ul>
 				<ul class="add-work">
 					<li class="li-end">

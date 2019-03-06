@@ -24,43 +24,35 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Category::create([
-        //     'name' => $request->name
-        // ]);
         // request()->only('name') ['name' => 'abc']
         // Category::create([
         //     'name' => request()->name
         // ])
 
-        // Category::create(request()->only('name'));
-        Category::create([
-            'name' => $request->name
-        ]);
+        $category = Category::create(request()->only('name'));
         return response()->json([
             'success' => true,
+            'id' => $category->id 
         ]);
     }
     public function update(Request $request,$id)
     {
-        // dd($category);
         // $category->update(request()->only('name'));
         // return redirect(route('categories.index'));
 
-        // $request->get('name');
-        // dd($request);
         $category = Category::find($id);
-        $category->update([
-            'name' => $request->name
-        ]);
+        $category->update(request()->only('name'));
         return response()->json([
             'success' => true,
         ]);
     }
 
-    public function destroy(category $Category)
+    public function destroy($id)
     {
-        $Category->delete();
-        return redirect(route('categories.index'));
+        Category::find($id)->delete($id);
+        return response()->json([
+            'success' => true,
+        ]);
+        // return redirect(route('categories.index'));
     }
 }

@@ -105,33 +105,34 @@ __webpack_require__(/*! ./main */ "./resources/js/main.js");
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  $('.add-group').click(function (event) {
-    event.preventDefault();
+  $('body').on('click', '.add-group', function (event) {
+    event.preventDefault(); //    $('.group').append($('.div-li-add').html())
+
     $('.li-add').css("transform", "scale(1)");
-  });
-  $('.btn-edit-check').click(function () {
-    var id = $(this).attr('data-id');
-    var name = $('#input-data-' + id).val();
+  }); //delete
+
+  $('body').on('click', '.delete', function () {
+    var id = $(this).data('id');
     $.ajax({
       url: "/categories/" + id,
-      type: "POST",
+      type: 'DELETE',
       data: {
-        name: name,
-        _method: 'PUT'
+        "id": id
       },
-      success: function success(data) {
-        console.log(data);
+      success: function success(data) {// if(data.success == true){ 
+        //     setTimeout(function(){
+        //          location.reload();
+        //     }, 100); 
+        //  }
       },
       error: function error() {
         alert('1');
       }
     });
-  }); // $('.buttonAddWork').click(function(){
-  //     $x = $('dataAdd').val();
-  //     console.log($x);
-  // });
+    $('.li-' + id).css('display', 'none');
+  }); //story
 
-  $('.buttonAddWork').click(function (event) {
+  $('body').on('click', '.buttonAddWork', function (event) {
     event.preventDefault();
     var name = $('#list').val();
     $.ajax({
@@ -140,12 +141,46 @@ $(document).ready(function () {
       data: {
         name: name
       },
-      success: function success(response) {// console.log(response.Category[1]);
+      success: function success(data) {
+        $('.data-edit-id').addClass('data-edit-' + data.id);
+        $('.input-edit-id').addClass('input-edit-' + data.id);
+        $('.btn-edit-id').attr('data-id', data.id);
+        $('.btn-edit-check-id').attr('data-id', data.id);
+        $('.input-data-id').addClass('input-data-' + data.id);
+        $('.btn-edit-check-id').addClass('btn-edit-check-' + data.id);
+        $('.delete').attr('data-id', data.id);
+        $('.li-id').addClass('li-' + data.id);
+      }
+    });
+    $('.input-data-id').attr('value', name);
+    $('.group').append($('.add-new-list').html());
+    $('.name-add').append(name);
+    $('.li-add').css('display', 'none');
+  }); //update
+
+  $('body').on('click', '.btn-edit-check', function () {
+    var id = $(this).attr('data-id');
+    var name = $('.input-data-' + id).val();
+    console.log(name);
+    $.ajax({
+      url: "/categories/" + id,
+      type: "POST",
+      data: {
+        name: name,
+        _method: 'PUT'
+      },
+      success: function success(data) {// if(data.success == true){ 
+        //     setTimeout(function(){
+        //          location.reload();
+        //     }, 100); 
+        //  }   
+      },
+      error: function error() {
+        alert('error');
       }
     });
   });
-  $('.btn-edit').click(function (event) {
-    event.preventDefault();
+  $('body').on('click', '.btn-edit', function () {
     $a = $(this).attr('data-id');
     $('.input-edit-' + $a).fadeToggle();
     $('.data-edit-' + $a).fadeToggle();
@@ -163,7 +198,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/lib/loader.js):\n\n@import 'variables';\n       ^\n      Can't find stylesheet to import.\n  ╷\n5 │ @import 'variables';\n  │         ^^^^^^^^^^^\n  ╵\n  stdin 5:9  root stylesheet\n      in /Users/Vokiet/Projects/work/resources/sass/app.scss (line 5, column 9)\n    at runLoaders (/Users/Vokiet/Projects/work/node_modules/webpack/lib/NormalModule.js:301:20)\n    at /Users/Vokiet/Projects/work/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/Vokiet/Projects/work/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/Vokiet/Projects/work/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at render (/Users/Vokiet/Projects/work/node_modules/sass-loader/lib/loader.js:52:13)\n    at Function.$2 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:24106:48)\n    at w6.$2 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:15161:15)\n    at u6.v7 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:9031:42)\n    at u6.v6 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:9033:32)\n    at ik.uh (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8373:46)\n    at tF.$0 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8515:7)\n    at Object.ex (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:1532:80)\n    at aj.bb (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8436:3)\n    at iz.bb (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8366:25)\n    at iz.cA (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8353:6)\n    at p8.cA (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8143:35)\n    at Object.n (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:1405:19)\n    at /Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:5110:51\n    at ww.a (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:1416:71)\n    at ww.$2 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8158:23)\n    at v9.$2 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8153:25)\n    at u6.v7 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:9031:42)\n    at u6.v6 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:9033:32)\n    at ik.uh (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8373:46)\n    at tF.$0 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8515:7)\n    at Object.ex (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:1532:80)\n    at aj.bb (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8436:3)\n    at iz.bb (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8366:25)\n    at iz.cA (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8353:6)\n    at Object.eval (eval at BU (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:656:15), <anonymous>:3:37)\n    at u6.v7 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:9031:42)\n    at u6.v6 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:9033:32)\n    at ik.uh (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8373:46)\n    at tF.$0 (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8515:7)\n    at Object.ex (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:1532:80)\n    at aj.bb (/Users/Vokiet/Projects/work/node_modules/sass/sass.dart.js:8436:3)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
