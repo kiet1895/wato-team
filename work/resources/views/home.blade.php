@@ -21,7 +21,7 @@
 					@foreach ($categories as $categories)
 				<li class="li-{{ $categories->id }}">
 						<div class="size-li  data-edit-{{ $categories->id }}">
-							<a href="{{ route('listwork.show',$categories->id) }}"><i class="fas fa-list-ul"></i>{{ $categories->name }}</a>
+							<a class="name-add-{{ $categories->id }}" href="{{ route('listwork.show',$categories->id) }}"><i class="fas fa-list-ul"></i>{{ $categories->name }}</a>
 						</div>
 						<div class="input-edit-{{ $categories->id }} input-edit">
 							{{-- <form method="POST" action="{{ route("categories.update",$categories->id) }}" id="checkForm-{{ $categories->id }}">
@@ -59,16 +59,6 @@
 							</button>
 						</div>
 					</li>
-					<li class="">
-							<div class="add">
-								<label for="list"><i class="fas fa-list-ul"></i></label>
-								<input class="dataAdd" placeholder="Add group" type="text" name="name" id="list">
-							</div>
-							<div class="work-action">
-								<button class="buttonAddWork" type="submit" form="check-group"><i class="fas fa-check"></i>
-								</button>
-							</div>
-						</li>
 					{{-- ------- --}}
 					<div class="add-new-list">
 							<li class="li-id">
@@ -78,7 +68,7 @@
 								<div class="input-edit-id input-edit">
 									<input class="input-data-id" type="text" value="" placeholder="">
 								</div>
-								<div><span>6</span></div>
+								<div><span>0</span></div>
 								<div class="work-action">
 									<div class="action">
 										<button class="btn-edit btn-edit-id" data-id="?">

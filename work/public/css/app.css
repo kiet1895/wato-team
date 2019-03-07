@@ -234,8 +234,7 @@
 }
 
 .home .container-home .home-menu-list .nav-left ul .li-add {
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  display: none;
 }
 
 .home .container-home .home-menu-list .nav-left ul .li-add .add {

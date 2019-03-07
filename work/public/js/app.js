@@ -108,7 +108,7 @@ $(document).ready(function () {
   $('body').on('click', '.add-group', function (event) {
     event.preventDefault(); //    $('.group').append($('.div-li-add').html())
 
-    $('.li-add').css("transform", "scale(1)");
+    $('.li-add').css("display", "flex");
   }); //delete
 
   $('body').on('click', '.delete', function () {
@@ -143,19 +143,27 @@ $(document).ready(function () {
       },
       success: function success(data) {
         $('.data-edit-id').addClass('data-edit-' + data.id);
+        $('.data-edit-id').removeClass('data-edit-id');
         $('.input-edit-id').addClass('input-edit-' + data.id);
+        $('.input-edit-id').removeClass('input-edit-id');
         $('.btn-edit-id').attr('data-id', data.id);
         $('.btn-edit-check-id').attr('data-id', data.id);
         $('.input-data-id').addClass('input-data-' + data.id);
+        $('.input-data-id').removeClass('input-data-id');
         $('.btn-edit-check-id').addClass('btn-edit-check-' + data.id);
+        $('.btn-edit-check-id').removeClass('btn-edit-check-id');
         $('.delete').attr('data-id', data.id);
         $('.li-id').addClass('li-' + data.id);
+        $('.li-id').removeClass('li-id');
+        $('.name-add').addClass('name-add-' + data.id);
+        $('.name-add').removeClass('name-add');
       }
     });
     $('.input-data-id').attr('value', name);
     $('.group').append($('.add-new-list').html());
     $('.name-add').append(name);
     $('.li-add').css('display', 'none');
+    $('.add-new-list').remove();
   }); //update
 
   $('body').on('click', '.btn-edit-check', function () {
@@ -179,6 +187,12 @@ $(document).ready(function () {
         alert('error');
       }
     });
+    $('.btn-edit-check-' + id).fadeToggle();
+    $('.input-data' + id).fadeToggle();
+    $('.data-edit-' + $a).fadeToggle();
+    $('.input-edit-' + $a).fadeToggle();
+    $('.name-add-' + id).html('<i class="fas fa-list-ul"></i>' + name);
+    $('.btn-edit').css('display', 'block');
   });
   $('body').on('click', '.btn-edit', function () {
     $a = $(this).attr('data-id');
